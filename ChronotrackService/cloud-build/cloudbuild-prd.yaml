@@ -1,0 +1,47 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args: [
+      "build",
+      "-t",
+      "us.gcr.io/$PROJECT_ID/${_SERVICE}:$SHORT_SHA",
+      "-f",
+      "cloud-build/chronotrack-api/Dockerfile",
+      "."]
+    dir: "${_FOLDER}"
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "us.gcr.io/$PROJECT_ID/${_SERVICE}:$SHORT_SHA"]
+  - name: "gcr.io/cloud-builders/kubectl"
+    args:
+      [
+        "set",
+        "env",
+        "deployments/app-${_SERVICE}-deploy",
+        "ConnChronotrack=${_CONN_CHRONOTRACK}",
+      ]
+    env:
+      - "CLOUDSDK_COMPUTE_REGION=southamerica-east1"
+      - "CLOUDSDK_CONTAINER_CLUSTER=ramon-cluster"
+  - name: "gcr.io/cloud-builders/kubectl"
+    args:
+      [
+        "set",
+        "env",
+        "deployments/app-${_SERVICE}-deploy",
+        "InstanceMysql=${_INSTANCE_MYSQL}",
+        "KeyMysql=${_KEY_MYSQL}",
+        "--containers=cloudsql-proxy",
+      ]
+    env:
+      - "CLOUDSDK_COMPUTE_REGION=southamerica-east1"
+      - "CLOUDSDK_CONTAINER_CLUSTER=ramon-cluster"
+  - name: "gcr.io/cloud-builders/kubectl"
+    args:
+      [
+        "set",
+        "image",
+        "deployments/app-${_SERVICE}-deploy",
+        "app-wise=us.gcr.io/$PROJECT_ID/${_SERVICE}:$SHORT_SHA",
+      ]
+    env:
+      - "CLOUDSDK_COMPUTE_REGION=southamerica-east1"
+      - "CLOUDSDK_CONTAINER_CLUSTER=ramon-cluster"

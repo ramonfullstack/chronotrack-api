@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: chronotrack-api
+spec:
+  type: ClusterIP
+  selector:
+    app: chronotrack-api
+  ports:
+  - protocol: TCP
+    port: 30000
+    targetPort: 80
