@@ -1,0 +1,27 @@
+{
+  "profiles": {
+    "https": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "",
+        "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development",
+            "SecretKey": "ramon-prd-secret-rss",
+            "Issuer": "chronotrack",
+            "Audience": "chronotrack.frontend",
+            "ConnChronotrack": "Server=34.58.123.161;Port=3306;Database=chronotrack;Uid=root;Pwd=master;"
+        },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5000"
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:5000",
+      "sslPort": 44330
+    }
+  }
+}

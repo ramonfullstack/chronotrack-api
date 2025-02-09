@@ -1,0 +1,47 @@
+# .NET & Visual Studio
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.csproj.user
+*.vs/
+
+# VS Code
+.vscode/
+
+# Configurações do Rider
+.idea/
+
+# Logs e backups
+*.log
+*.bak
+
+# Dependências do NuGet
+packages/
+*.nupkg
+project.lock.json
+
+# Configurações de build
+*.Build.*
+*.pidb
+*.ilk
+*.pdb
+
+# Certificados e secrets
+*.pfx
+*.snk
+secrets.json
+
+# Diretórios temporários
+TestResults/
+dist/
+node_modules/
+
+# Docker
+.dockerignore
+Dockerfile
+
+# Arquivos de cache
+*.dbmdl
+*.obj
