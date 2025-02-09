@@ -61,4 +61,4 @@ steps:
 
 # Opções de configuração do Cloud Build
 options:
-  logging: CLOUD_LOGGING_ONLY  # Define para enviar logs para o Cloud Logging
+  logging: NONE  # Define para enviar logs para o Cloud Logging
