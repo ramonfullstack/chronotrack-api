@@ -1,7 +1,5 @@
-# cloudbuild.yaml
-
-options:
-  logsBucket: "gs://ramon-logs-bucket"
+# Define o bucket para armazenar logs do build
+logsBucket: "gs://meu-bucket-de-logs"
 
 # Define a Service Account para o build
 serviceAccount: "projects/ramon-prd/serviceAccounts/ramon-prd@ramon-prd.iam.gserviceaccount.com"
@@ -58,4 +56,3 @@ steps:
     env:
       - "CLOUDSDK_COMPUTE_REGION=southamerica-east1"
       - "CLOUDSDK_CONTAINER_CLUSTER=ramon-cluster"
-
