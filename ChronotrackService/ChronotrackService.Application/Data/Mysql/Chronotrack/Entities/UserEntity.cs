@@ -33,5 +33,11 @@ namespace ChronotrackService.Application
 
         [Column("created")]
         public DateTime Created { get; set; }
+
+        [Column("refresh_token")]
+        public string? RefreshToken { get; set; }
+
+        [Column("refresh_token_expiry")]
+        public DateTime? RefreshTokenExpiry { get; set; }
     }
 }

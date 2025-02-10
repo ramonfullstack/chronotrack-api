@@ -22,6 +22,16 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
 
 var app = builder.Build();
 
@@ -31,6 +41,8 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Chronotrack API");
     c.RoutePrefix = string.Empty;
 });
+
+app.UseCors("AllowAll");
 
 app.UseRouting();
 app.UseEndpoints(endpoints =>

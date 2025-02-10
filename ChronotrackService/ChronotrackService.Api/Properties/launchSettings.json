@@ -6,7 +6,7 @@
       "launchUrl": "",
         "environmentVariables": {
             "ASPNETCORE_ENVIRONMENT": "Development",
-            "SecretKey": "ramon-prd-secret-rss",
+            "SecretKey": "MinhaChaveSuperSeguraComMaisDe32Caracteres!",
             "Issuer": "chronotrack",
             "Audience": "chronotrack.frontend",
             "ConnChronotrack": "Server=34.58.123.161;Port=3306;Database=chronotrack;Uid=root;Pwd=master;"
