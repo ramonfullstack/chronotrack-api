@@ -7,7 +7,7 @@ namespace ChronotrackService.Application
     public class ChronotrackContext : DbContext
     {
         public DbSet<UserEntity> Users { get; set; }
-        public DbSet<ExtraHoursEntity> EntraHours { get; set; }
+        public DbSet<ExtraHoursEntity> ExtraHours { get; set; }
         public ChronotrackContext(DbContextOptions<ChronotrackContext> options) : base(options)
         {
         }

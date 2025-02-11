@@ -42,21 +42,17 @@ namespace ChronotrackService.Api.Controllers
 
             var savedExtraHour = await _service.SaveOrUpdateExtraHourAsync(extraHour);
 
-            return CreatedAtAction(nameof(GetExtraHourById), new { id = savedExtraHour.Id }, savedExtraHour);
+            return CreatedAtAction(nameof(extraHour), new { id = savedExtraHour.Id }, savedExtraHour);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ExtraHoursEntity>> GetExtraHourById(int id)
+        [HttpGet("exportar-csv/{idUser}")]
+        public async Task<IActionResult> ExportToCsv(int idUser)
         {
-            var extraHour = await _service.GetExtraHourByIdAsync(id);
+            var csvFile = await _service.GenerateCsvReportAsync(idUser);
 
-            if (extraHour == null)
-            {
-                return NotFound($"Não foi encontrada hora extra com o ID {id}.");
-            }
-
-            return Ok(extraHour);
+            return File(csvFile, "text/csv", "ExtraHoursReport.csv");
         }
+
 
     }
 }
