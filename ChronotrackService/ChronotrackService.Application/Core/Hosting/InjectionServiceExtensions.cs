@@ -1,5 +1,4 @@
-﻿using System;
-using ChronotrackService.Application.Utils;
+﻿using ChronotrackService.Application.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +9,7 @@ namespace ChronotrackService.Application
         public static IServiceCollection AddServices(this IServiceCollection services, AppSettings appSettings)
         {
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IExtraHourService, ExtraHourService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddSingleton<AppSettings>();
 

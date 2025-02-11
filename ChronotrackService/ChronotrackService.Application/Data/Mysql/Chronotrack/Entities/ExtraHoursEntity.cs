@@ -10,7 +10,7 @@ namespace ChronotrackService.Application
         public int Id { get; set; }
 
         [Column("id_user")]
-        public int id_user { get; set; }
+        public int IdUser { get; set; }
 
         [Column("hours_worked")]
         public decimal? HoursWorked { get; set; }

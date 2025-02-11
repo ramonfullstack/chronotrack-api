@@ -33,7 +33,7 @@ namespace ChronotrackService.Application
                new ExtraHoursEntity
                {
                    Id = 1,
-                   id_user = 1,
+                   IdUser = 1,
                    BaseRateDay = 2,
                    DayOfWeek = "Domingo",
                    HoursWorked = 3,

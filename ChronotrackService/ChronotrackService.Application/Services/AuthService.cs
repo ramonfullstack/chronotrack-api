@@ -15,7 +15,7 @@ namespace ChronotrackService.Application
 
         public ChronotrackContext ChronotrackContext { get; }
 
-        public AuthService(IUserRepository userRepository, 
+        public AuthService(IUserRepository userRepository,
             IConfiguration configuration,
             ChronotrackContext chronotrackContext)
         {
